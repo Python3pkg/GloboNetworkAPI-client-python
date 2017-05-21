@@ -15,7 +15,7 @@
 # limitations under the License.
 import json
 import logging
-import urllib
+import urllib.request, urllib.parse, urllib.error
 from io import BytesIO
 
 import requests
@@ -238,7 +238,7 @@ class ApiGenericClient(object):
                 })
 
         if params:
-            params = urllib.urlencode(params)
+            params = urllib.parse.urlencode(params)
             uri = '%s?%s' % (uri, params)
 
         return uri

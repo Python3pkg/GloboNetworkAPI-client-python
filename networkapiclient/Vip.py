@@ -273,7 +273,7 @@ class Vip(GenericClient):
 
         if not is_valid_int_param(id_vip):
             raise InvalidParameterError(
-                u'The identifier of vip is invalid or was not informed.')
+                'The identifier of vip is invalid or was not informed.')
 
         vip_map = dict()
         vip_map['id_ipv4'] = id_ipv4
@@ -348,7 +348,7 @@ class Vip(GenericClient):
 
         if not is_valid_int_param(id_vip):
             raise InvalidParameterError(
-                u'The identifier of vip is invalid or was not informed.')
+                'The identifier of vip is invalid or was not informed.')
 
         vip_map = dict()
         vip_map['vip_id'] = id_vip
@@ -767,7 +767,7 @@ class Vip(GenericClient):
         """
         if not is_valid_int_param(id_vip):
             raise InvalidParameterError(
-                u'Vip request identifier is invalid or was not informed.')
+                'Vip request identifier is invalid or was not informed.')
 
         url = 'vip/delete/' + str(id_vip) + '/'
         if keep_ip:
@@ -793,7 +793,7 @@ class Vip(GenericClient):
         """
         if not is_valid_int_param(id_vip):
             raise InvalidParameterError(
-                u'Vip request identifier is invalid or was not informed.')
+                'Vip request identifier is invalid or was not informed.')
 
         url = 'vip/validate/' + str(id_vip) + '/'
 
@@ -961,7 +961,7 @@ class Vip(GenericClient):
         """
         if not is_valid_int_param(id_vip):
             raise InvalidParameterError(
-                u'O identificador do vip é inválido ou não foi informado.')
+                'O identificador do vip é inválido ou não foi informado.')
 
         vip_map = dict()
         vip_map['id_ip'] = id_ip
@@ -1030,7 +1030,7 @@ class Vip(GenericClient):
         """
         if not is_valid_int_param(id_vip):
             raise InvalidParameterError(
-                u'O identificador do vip é inválido ou não foi informado.')
+                'O identificador do vip é inválido ou não foi informado.')
 
         url = 'vip/' + str(id_vip) + '/'
 
@@ -1318,11 +1318,11 @@ class Vip(GenericClient):
 
         if not is_valid_int_param(id_vip):
             raise InvalidParameterError(
-                u'The identifier of vip is invalid or was not informed.')
+                'The identifier of vip is invalid or was not informed.')
 
         if not is_valid_int_param(maxcon):
             raise InvalidParameterError(
-                u'The maxcon is invalid or was not informed.')
+                'The maxcon is invalid or was not informed.')
 
         url = 'vip/' + str(id_vip) + '/maxcon/' + str(maxcon) + '/'
 
@@ -1371,7 +1371,7 @@ class Vip(GenericClient):
 
         if not is_valid_int_param(id_vip):
             raise InvalidParameterError(
-                u'The identifier of vip is invalid or was not informed.')
+                'The identifier of vip is invalid or was not informed.')
 
         url = 'vip/' + str(id_vip) + '/healthcheck/'
 
@@ -1412,7 +1412,7 @@ class Vip(GenericClient):
 
         if not is_valid_int_param(id_vip):
             raise InvalidParameterError(
-                u'The identifier of vip is invalid or was not informed.')
+                'The identifier of vip is invalid or was not informed.')
 
         url = 'vip/' + str(id_vip) + '/persistence/'
 
@@ -1444,7 +1444,7 @@ class Vip(GenericClient):
 
         if not is_valid_int_param(id_vip):
             raise InvalidParameterError(
-                u'The identifier of vip is invalid or was not informed.')
+                'The identifier of vip is invalid or was not informed.')
 
         url = 'vip/' + str(id_vip) + '/priority/'
 
@@ -1545,7 +1545,7 @@ class Vip(GenericClient):
         """
         if not is_valid_int_param(id_vip):
             raise InvalidParameterError(
-                u'The identifier of vip is invalid or was not informed.')
+                'The identifier of vip is invalid or was not informed.')
 
         url = 'vip/l7/' + str(id_vip) + '/'
 
@@ -1571,7 +1571,7 @@ class Vip(GenericClient):
 
         if not is_valid_int_param(id_vip):
             raise InvalidParameterError(
-                u'The identifier of vip is invalid or was not informed.')
+                'The identifier of vip is invalid or was not informed.')
 
         url = 'vip/l7/' + str(id_vip) + '/validate/'
 
@@ -1598,7 +1598,7 @@ class Vip(GenericClient):
 
         if not is_valid_int_param(id_vip):
             raise InvalidParameterError(
-                u'The identifier of vip is invalid or was not informed.')
+                'The identifier of vip is invalid or was not informed.')
 
         url = 'vip/l7/' + str(id_vip) + '/apply/'
 
@@ -1625,7 +1625,7 @@ class Vip(GenericClient):
 
         if not is_valid_int_param(id_vip):
             raise InvalidParameterError(
-                u'The identifier of vip is invalid or was not informed.')
+                'The identifier of vip is invalid or was not informed.')
 
         url = 'vip/l7/' + str(id_vip) + '/rollback/'
 
@@ -1665,4 +1665,4 @@ class Vip(GenericClient):
 
 if __name__ == '__main__':
     vip_cli = Vip('http://127.0.0.1:8080/', 'henrique', '12345678')
-    print vip_cli.buscar(6628)
+    print(vip_cli.buscar(6628))

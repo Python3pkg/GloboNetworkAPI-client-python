@@ -16,8 +16,8 @@
 
 import logging
 from urllib2 import *
-from httplib import *
-from urlparse import urlparse
+from http.client import *
+from urllib.parse import urlparse
 from networkapiclient.xml_utils import dumps_networkapi, loads
 
 LOG = logging.getLogger('networkapiclient.rest')
@@ -32,7 +32,7 @@ class RestError(Exception):
         self.message = message
 
     def __str__(self):
-        msg = u'Erro ao realizar requisição REST: Causa: %s, Mensagem: %s' % (
+        msg = 'Erro ao realizar requisição REST: Causa: %s, Mensagem: %s' % (
             self.cause, self.message)
         return msg.encode('utf-8')
 
@@ -46,7 +46,7 @@ class ConnectionError(RestError):
             ConnectionError,
             self).__init__(
             cause,
-            u'Falha na conexão com a NetworkAPI.')
+            'Falha na conexão com a NetworkAPI.')
 
 
 class Rest:
@@ -83,7 +83,7 @@ class Rest:
             LOG.debug('GET %s', url)
             request = Request(url)
             if auth_map is not None:
-                for key in auth_map.iterkeys():
+                for key in auth_map.keys():
                     request.add_header(key, auth_map[key])
                 #request.add_header('NETWORKAPI_PASSWORD', auth_map['NETWORKAPI_PASSWORD'])
                 #request.add_header('NETWORKAPI_USERNAME', auth_map['NETWORKAPI_USERNAME'])
@@ -134,7 +134,7 @@ class Rest:
             # print request_data
             if auth_map is not None:
 
-                for key in auth_map.iterkeys():
+                for key in auth_map.keys():
                     request.add_header(key, auth_map[key])
 
                 #request.add_header('NETWORKAPI_PASSWORD', auth_map['NETWORKAPI_PASSWORD'])
@@ -352,8 +352,8 @@ class Rest:
         try:
             return loads(content)
         except Exception as e:
-            raise RestError(e, u'Erro ao gerar o mapa de resposta!\n'
-                            u'Conteúdo recebido:\n%s' % content)
+            raise RestError(e, 'Erro ao gerar o mapa de resposta!\n'
+                            'Conteúdo recebido:\n%s' % content)
 
     def get_full_url(self, parsed_url):
         """ Returns url path with querystring """

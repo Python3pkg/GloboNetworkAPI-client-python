@@ -17,8 +17,8 @@
 from networkapiclient.GenericClient import GenericClient
 from networkapiclient.utils import get_list_map, is_valid_int_param
 from networkapiclient.exception import InvalidParameterError
-import urllib
-from utils import is_valid_0_1
+import urllib.request, urllib.parse, urllib.error
+from .utils import is_valid_0_1
 
 
 class Interface(GenericClient):
@@ -61,7 +61,7 @@ class Interface(GenericClient):
         """
         if not is_valid_int_param(id_equipamento):
             raise InvalidParameterError(
-                u'Equipment id is invalid or was not informed.')
+                'Equipment id is invalid or was not informed.')
 
         url = 'interface/equipamento/' + str(id_equipamento) + '/'
 
@@ -99,7 +99,7 @@ class Interface(GenericClient):
         """
         if not is_valid_int_param(id_equipamento):
             raise InvalidParameterError(
-                u'Equipment id is invalid or was not informed.')
+                'Equipment id is invalid or was not informed.')
 
         url = 'interface/equipment/' + str(id_equipamento) + '/'
 
@@ -137,7 +137,7 @@ class Interface(GenericClient):
         """
         if not is_valid_int_param(id_interface):
             raise InvalidParameterError(
-                u'Interface id is invalid or was not informed.')
+                'Interface id is invalid or was not informed.')
 
         url = 'interface/' + str(id_interface) + '/get/'
 
@@ -217,7 +217,7 @@ class Interface(GenericClient):
         """
         if not is_valid_int_param(id_interface):
             raise InvalidParameterError(
-                u'Interface id is invalid or was not informed.')
+                'Interface id is invalid or was not informed.')
 
         url = 'interface/' + str(id_interface) + '/'
 
@@ -249,7 +249,7 @@ class Interface(GenericClient):
         """
         if not is_valid_int_param(id_interface):
             raise InvalidParameterError(
-                u'Interface id is invalid or was not informed.')
+                'Interface id is invalid or was not informed.')
 
         url = 'interface/' + str(id_interface) + '/'
 
@@ -272,7 +272,7 @@ class Interface(GenericClient):
         :raise XMLError: Networkapi failed to generate the XML response.
         """
 
-        msg_err = u'Parameter %s is invalid. Value: %s.'
+        msg_err = 'Parameter %s is invalid. Value: %s.'
 
         if not is_valid_0_1(back_or_front):
             raise InvalidParameterError(
@@ -316,13 +316,13 @@ class Interface(GenericClient):
         """
         if not is_valid_int_param(id_equipamento):
             raise InvalidParameterError(
-                u'Equipment identifier is none or was not informed.')
+                'Equipment identifier is none or was not informed.')
 
         if (nome_interface is None) or (nome_interface == ''):
-            raise InvalidParameterError(u'Interface name was not informed.')
+            raise InvalidParameterError('Interface name was not informed.')
 
         url = 'interface/' + \
-            urllib.quote(nome_interface) + '/equipamento/' + str(id_equipamento) + '/'
+            urllib.parse.quote(nome_interface) + '/equipamento/' + str(id_equipamento) + '/'
 
         code, map = self.submit(None, 'GET', url)
 
@@ -360,16 +360,16 @@ class Interface(GenericClient):
         """
         if not is_valid_int_param(id_equipamento):
             raise InvalidParameterError(
-                u'Equipment identifier is none or was not informed.')
+                'Equipment identifier is none or was not informed.')
 
         if (nome_interface is None) or (nome_interface == ''):
-            raise InvalidParameterError(u'Interface name was not informed.')
+            raise InvalidParameterError('Interface name was not informed.')
 
         # Temporário, remover. Fazer de outra forma.
         nome_interface = nome_interface.replace('/', 's2it_replace')
 
         url = 'interface/' + \
-            urllib.quote(nome_interface) + '/equipment/' + str(id_equipamento) + '/'
+            urllib.parse.quote(nome_interface) + '/equipment/' + str(id_equipamento) + '/'
 
         code, map = self.submit(None, 'GET', url)
 
@@ -431,7 +431,7 @@ class Interface(GenericClient):
     def get_env_by_id(self, id_interface):
 
         if not is_valid_int_param(id_interface):
-            raise InvalidParameterError(u'Interface id is invalid or was not informed.')
+            raise InvalidParameterError('Interface id is invalid or was not informed.')
 
         url = 'int/get-env-by-interface/' + str(id_interface)
 
